@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/* Small entrance animation for toast notifications (e.g. "milestone added
+   successfully"). Referenced via Tailwind's arbitrary animate-[...] syntax. */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------------------------------------------------------
+   Bootstrap sets its own font-size/margin/line-height on
+   h1–h6 with higher specificity than Tailwind's utility
+   classes, since it's imported after Tailwind. Reset here
+   with explicit sizes so headings are consistent everywhere
+   without needing per-component overrides.
+---------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+h1 { font-size: 2rem; }      /* 32px */
+h2 { font-size: 1.5rem; }    /* 24px */
+h3 { font-size: 1.25rem; }   /* 20px */
+h4 { font-size: 1.125rem; }  /* 18px */
+h5 { font-size: 1rem; }      /* 16px */
+h6 { font-size: 0.875rem; }  /* 14px */
+
+/* ---------------------------------------------------------
+   DecisionLens design tokens
+   Signal system: teal = high confidence, amber = moderate,
+   coral = low confidence / needs review. Ink navy anchors
+   text and structure; paper is a warm off-white, not pure
+   white, so the analytical palette doesn't feel clinical.
+---------------------------------------------------------- */
+:root {
+  --dl-ink: #101B33;
+  --dl-ink-soft: #3B4664;
+  --dl-slate: #5B6478;
+  --dl-paper: #F7F5F1;
+  --dl-paper-raised: #FFFFFF;
+  --dl-line: #E4E1D8;
+
+  --dl-teal: #1F7A6C;
+  --dl-teal-soft: #E4F1EE;
+  --dl-amber: #C8871E;
+  --dl-amber-soft: #F7EEDC;
+  --dl-coral: #C24A3E;
+  --dl-coral-soft: #F6E5E2;
+
+  --dl-font-display: 'Fraunces', serif;
+  --dl-font-body: 'Inter', sans-serif;
+  --dl-font-mono: 'IBM Plex Mono', monospace;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: var(--dl-paper);
+  color: var(--dl-ink);
+  font-family: var(--dl-font-body);
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--dl-font-display);
+}
+
+.font-mono-num {
+  font-family: var(--dl-font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.btn:focus, .form-control:focus {
+  box-shadow: 0 0 0 3px rgba(31, 122, 108, 0.25);
+}
+
+::selection {
+  background: var(--dl-teal);
+  color: white;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--dl-line); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--dl-slate); }

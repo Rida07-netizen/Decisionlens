@@ -1,0 +1,12 @@
+node_modules
+dist
+.env
+.env.local
+.vercel
+
+# Local-only data. The deployed app keeps state in Postgres (see server/db.js)
+# and uploaded documents in Vercel Blob (see server/storage.js). Neither of
+# these belongs in the repository — db.json contains real student records and
+# password hashes.
+server/db.json
+server/uploads/

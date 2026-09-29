@@ -1,0 +1,47 @@
+{
+  "name": "decisionlens",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "server": "node server/index.js",
+    "server:watch": "nodemon server/index.js",
+    "dev:full": "concurrently -n API,WEB -c green,cyan \"npm:server\" \"npm:dev\"",
+    "build": "vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "migrate": "node server/migrate.js"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "@vercel/blob": "^2.8.0",
+    "axios": "^1.19.0",
+    "bcryptjs": "^3.0.3",
+    "bootstrap": "^5.3.8",
+    "chart.js": "^4.5.1",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "lucide-react": "^1.31.0",
+    "mammoth": "^1.12.1",
+    "multer": "^2.2.0",
+    "react": "^19.2.8",
+    "react-chartjs-2": "^5.3.1",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.2",
+    "unpdf": "^1.8.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "autoprefixer": "^10.5.4",
+    "concurrently": "^10.0.4",
+    "nodemon": "^3.1.14",
+    "oxlint": "^1.75.0",
+    "postcss": "^8.5.26",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.2.0"
+  }
+}
